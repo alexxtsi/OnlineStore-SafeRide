@@ -2,6 +2,9 @@
 
 namespace application\core;
 
+/**
+ * Router class determines which controller needs to be loaded, based on the request passed to it, and the routes defined.
+ */
 class Router
 {
     protected $routes = [];
@@ -22,10 +25,10 @@ class Router
     //Check if the current url exists in routes if true add controller and action to params
     public function match()
     {
-        $url = trim($_SERVER['REQUEST_URI'], '/'); #current url whitout '/'  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        $url = trim($_SERVER['REQUEST_URI'], '/'); #current url whitout '/' 
         $url = str_replace('SafeRideStore', '', $url);
         $url = trim($url, '/');
-       
+
         foreach ($this->routes as $route => $params) {
             if (preg_match($route, $url, $matches)) {
                 $this->params = $params; #current params to class params 
@@ -43,10 +46,8 @@ class Router
             if (class_exists($path)) {
                 $action = $this->params['action'] . 'Action';
                 if (method_exists($path, $action)) { #check if method Action exists in this controller
-
                     $controller = new $path($this->params);
                     $controller->$action();
-                   
                 } else {
                     View::errorCode(404);
                 }
@@ -54,7 +55,7 @@ class Router
                 View::errorCode(404);
             }
         } else {
-            View::errorCode(404);
+          View::errorCode(404);
         }
     }
     //load parameter to params array if parameters passed in url
@@ -64,11 +65,12 @@ class Router
         if (isset($this->params['id'])) {
             $segments = explode('/', $url);
             $this->params['id'] = array_pop($segments);
-            if (isset($this->params['amount'])) {
+            if (isset($this->params['amount']))
                 $this->params['amount'] = array_pop($segments);
+            if (isset($this->params['size']))
                 $this->params['size'] = array_pop($segments);
+            if (isset($this->params['color']))
                 $this->params['color'] = array_pop($segments);
-            }
         }
     }
 }

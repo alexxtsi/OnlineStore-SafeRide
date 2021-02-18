@@ -41,4 +41,15 @@
   #wrapper.toggled #sidebar-wrapper {
     margin-left: -15rem;
   }
+
+  .title {
+    width: 100%;
+    display: block;
+    font-family: Poppins-Regular;
+    font-size: 30px;
+    color: #252525;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 10px;
+  }
 }

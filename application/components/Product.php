@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Class Product
+ * Entity class for product
+ */
+
 namespace application\components;
 
 class Product
@@ -11,6 +16,17 @@ class Product
     protected $price;
     protected $imgPath;
     protected $brand;
+    protected $discount;
+
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+    public function setDiscount($discount)
+    {
+        $this->discount = $discount;
+    }
 
     public function getProductId()
     {
@@ -80,16 +96,6 @@ class Product
     public function setPrice($price)
     {
         $this->price = $price;
-    }
-
-    public function getAmount()
-    {
-        return $this->amount;
-    }
-
-    public function setAmount($amount)
-    {
-        $this->amount = $amount;
     }
 
     public function getImgPath()

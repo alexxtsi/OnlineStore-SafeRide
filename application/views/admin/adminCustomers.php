@@ -4,9 +4,14 @@ use application\components\Customer;
 
 $customers = $vars['customers'];
 ?>
-<div class="container">
-    <h2>Customers</h2>
-    <p>The .thead-dark class adds a black background to table headers, and the .thead-light class adds a grey background to table headers:</p>
+<div class="container ">
+
+    <div class="row justify-content-center title">
+        <h2>Customers</h2>
+    </div>
+    <div class="row justify-content-center s-title">
+        <p>Those are registered Customers</p>
+    </div>
     <table class="table">
         <thead class="thead-dark">
             <tr>

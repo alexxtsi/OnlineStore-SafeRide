@@ -2,6 +2,9 @@
 
 namespace application\core;
 
+/**
+ * View class acts as an object wrapper for HTML pages with embedded PHP
+ */
 class View
 {
     public $path;
@@ -12,7 +15,13 @@ class View
     {
         $this->route = $route;
         $this->path = $route['controller'] . '/' . $route['view'];
-    }
+    }    
+    /**
+     * this function loads relevant view page with relevant layout
+     *
+     * @param  string $title title for the page
+     * @param  array  $vars varibales for the page
+     */
     public function render(string $title, $vars = [])
     {
         if (isset($vars['admin']))
@@ -23,12 +32,20 @@ class View
         $content = ob_get_clean();
         require  'application/views/layouts/' . $this->layout . '.php'; # load layout
 
-    }
+    }    
+    /**
+     * this function redirects to passed url
+     *
+     * @param  string $url
+     */
     public function redirect($url)
     {
         header('location: ' . $url);
         exit;
-    }
+    }    
+    /**
+     * this fanction load error page 
+     */
     public static function errorCode($code)
     {
         http_response_code($code);
@@ -37,15 +54,5 @@ class View
             require $path;
         }
         exit;
-    }
-
-    public function message($status, $message)
-    {
-        exit(json_encode(['status' => $status, 'message' => $message]));
-    }
-
-    public function location($url)
-    {
-        exit(json_encode(['url' => $url]));
     }
 }

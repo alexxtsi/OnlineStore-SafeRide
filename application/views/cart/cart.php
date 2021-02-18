@@ -8,7 +8,19 @@
             <div class="mb-3">
                 <div class="pt-4 wish-list">
                     <?php
+
+                    use application\lib\Db;
+
+                    $db = new Db();
+                    $param_value_array = array("userName" => "user",  "PaymentStatus" => "complete", "txnId" => "324234", "totalAmount" => "5645");
+
+
+                    $orderId = $db->query("INSERT INTO orders (userName,PaymentStatus,txnId,totalAmount)
+                          VALUES(:userName,:PaymentStatus,:txnId,:totalAmount);
+                          SELECT LAST_INSERT_ID();", $param_value_array);
+
                     use application\components\Cart;
+
                     $products = array();
                     if (!isset($vars['products'])) {
                     ?>
@@ -18,7 +30,7 @@
                     } else {
                         $products = $vars['products'];
                     ?>
-                        <h5 class="m-4">Cart (<span><?= $count = Cart::countItems(); ?></span> items)</h5>
+                        <h5 class="m-4" id="itemsCount">Cart (<span><?= $count = Cart::countItems(); ?></span> items)</h5>
 
                         <?php for ($i = 0; $i < count($products); $i++) {
                             $id = $products[$i]['inStockId'];
@@ -37,7 +49,12 @@
                                         <div class="d-flex justify-content-between">
                                             <div>
                                                 <h5 class="font-weight-bold"><?= $products[$i]['productName']; ?> </h5>
-                                                <p class="text-uppercase font-weight-bold">Price: <?= $products[$i]['price']; ?> &#8362 </p>
+                                                <?php
+                                                if ($products[$i]['discount'] > 0) {
+                                                    echo '<p class="text-uppercase font-weight-bold">Price: <del>' . $products[$i]['price'] . '$</del> <span class="text-danger">' . Cart::calDiscount($products[$i]['discount'], $products[$i]['price']) . '$  (SALE)</span></p>';
+                                                } else   echo '<p class="text-uppercase font-weight-bold">Price:' . $products[$i]['price'] . '$ </p>';
+                                                ?>
+
                                                 <p class="mb-2 text-muted text-uppercase small">Brand: <?= $products[$i]['brand']; ?> </p>
                                                 <p class="mb-2 text-muted text-uppercase small">Color: <?= $products[$i]['color']; ?></p>
                                                 <p class="mb-2 text-muted text-uppercase small">Size: <?= $products[$i]['size']; ?></p>
@@ -45,7 +62,7 @@
                                             <div>
                                                 <div class="qty mb-0 w-100">
                                                     <span data-id="<?= $id ?>" class="minus bg-dark">-</span>
-                                                    <input type="number" id="count<?= $id ?>" class="count" min="1" max="99" name="qty" disabled value=<?= $quantity ?>>
+                                                    <input type="number" id="countCart<?= $id ?>" class="count" min="1" max="99" name="qty" disabled value=<?= $quantity ?>>
                                                     <span data-id="<?= $id ?>" class="plus bg-dark">+</span>
                                                 </div>
                                             </div>
@@ -61,14 +78,9 @@
                     <?php }
                     } ?>
                     <p class="text-primary mb-0"><i class="fas fa-info-circle mr-1"></i> Do not delay the purchase, adding items to your cart does not mean booking them.</p>
-
-
-
-
                 </div>
             </div>
         </div>
-
         <div class="col-lg-3">
             <!-- Card -->
             <div class="mb-3">
@@ -76,8 +88,13 @@
                     <h5 class="mb-3">The total amount</h5>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                            Total:
-                            <span id="totalPrice"><?= $total =Cart::getTotalPrice($products); ?> &#8362</span>
+                            Temporary amount:
+                            <span id="subTotalPrice">$<?= $subTotal = Cart::priceNoVat($products); ?> </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                            VAT (<?= $subTotal = Cart::getVat() * 100; ?>%):
+
+                            <span id="vat">$<?= $subTotal = Cart::calVat($products); ?></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                             Shipping:
@@ -85,12 +102,17 @@
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-2">
                             <div>
-
-
+                                <strong>The total amount </strong>
+                                <strong>
+                                    <p class="mb-0">(including VAT)</p>
+                                </strong>
+                            </div>
+                            <strong> <span id="TotalPrice">$<?= Cart::TotalPrice($products) ?></span></strong>
                         </li>
                     </ul>
 
-                    <?php require_once '../SafeRideStore/application/components/payPalSubmit.php'; ?>
+                    <?php require_once '../SafeRideStore/application/components/payPalSubmit.php';
+                    ?>
                 </div>
             </div>
 

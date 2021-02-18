@@ -5,6 +5,11 @@ return [
         'action' => 'index',
         'view' => 'index'
     ],
+    'gear-guid' => [
+        'controller' => 'main',
+        'action' => 'guid',
+        'view' => 'gearGuid'
+    ],
     'account/login' => [
         'controller' => 'account',
         'action' => 'login',
@@ -13,16 +18,49 @@ return [
     'account/register' => [
         'controller' => 'account',
         'action' => 'register',
-        'view' => 'register'
+        'view' => 'editRegister'
     ],
     'account/logout' => [
         'controller' => 'account',
         'action' => 'logout',
+        'view' => ''
+    ],
+    'account/editAccount' => [
+        'controller' => 'account',
+        'action' => 'editAccount',
+        'view' => 'editRegister'
+    ],
+    'account/changePassword' => [
+        'controller' => 'account',
+        'action' => 'change',
+        'view' => ''
+    ],
+    'accaunt/orderHistory' => [
+        'controller' => 'orders',
+        'action' => 'orderHistory',
+        'view' => 'orders'
+    ],
+    'order/products/[0-9]+' => [
+        'controller' => 'orders',
+        'action' => 'orderProducts',
+        'view' => 'orders',
+        'id' => ''
+    ],
+    'contact' => [
+        'controller' => 'account',
+        'action' => 'contact',
+        'view' => 'contact'
+    ],
+    'massage' => [
+        'controller' => 'account',
+        'action' => 'massage',
+        'view' => 'contact'
     ],
     'cart' => [
         'controller' => 'cart',
         'action' => 'cart',
         'view' => 'cart'
+
     ],
     'cart/addAjax/[A-Za-z]+/[A-Za-z]+/[0-9]+/[0-9]+' => [
         'controller' => 'cart',
@@ -53,11 +91,15 @@ return [
         'view' => 'cart',
         'id' => ''
     ],
-    'order/checkout
-      ' => [
-        'controller' => 'order',
-        'action' => 'checkOut',
-        'view' => 'payPal',
+    'order/proceedOrder' => [
+        'controller' => 'orders',
+        'action' => 'proceedOrder',
+        'view' => 'orders',
+    ],
+    'cart/total' => [
+        'controller' => 'cart',
+        'action' => 'total',
+        'view' => 'cart',
     ],
     'productDetails/[0-9]+' => [
         'controller' => 'products',
@@ -69,7 +111,7 @@ return [
         'controller' => 'products',
         'action' => 'productByCategory',
         'view' => 'products',
-        'category' => 'helmets'
+        'category' => 'helmet'
     ],
     'products/full-face-helmets' => [
         'controller' => 'products',
@@ -87,19 +129,19 @@ return [
         'controller' => 'products',
         'action' => 'productBySubCategory',
         'view' => 'products',
-        'category' => 'dualSport'
+        'category' => 'Dual Sport'
     ],
     'products/dirt-helmet' => [
         'controller' => 'products',
         'action' => 'productBySubCategory',
         'view' => 'products',
-        'category' => 'dirtHelmet'
+        'category' => 'Dirt'
     ],
     'products/half-helmet' => [
         'controller' => 'products',
         'action' => 'productBySubCategory',
         'view' => 'products',
-        'category' => 'halfHelmet'
+        'category' => 'Half'
     ],
     'products/open-face-helmet' => [
         'controller' => 'products',
@@ -109,13 +151,82 @@ return [
     ],
     'products/accessories' => [
         'controller' => 'products',
-        'action' => 'productBySubCategory',
+        'action' => 'productByCategory',
         'view' => 'products',
         'category' => 'accessories'
+    ],
+    'products/jeans' => [
+        'controller' => 'products',
+        'action' => 'productBySubCategory',
+        'view' => 'products',
+        'category' => 'jeans'
+
+    ],
+    'products/RainGear' => [
+        'controller' => 'products',
+        'action' => 'productBySubCategory',
+        'view' => 'products',
+        'category' => 'RainGear'
+
+    ],
+    'products/protection/[A-Za-z0-9]+' => [
+        'controller' => 'products',
+        'action' => 'productByUrl',
+        'view' => 'products',
+        'brand' => ''
+    ],
+    'products/brands/[A-Za-z0-9]+' => [
+        'controller' => 'products',
+        'action' => 'productByUrl',
+        'view' => 'products',
+        'brand' => ''
+    ],
+    'products/search' => [
+        'controller' => 'products',
+        'action' => 'productSearch',
+        'view' => 'products',
+    ],
+    'products/sizesAjax/[A-Za-z]+/[0-9]+' => [
+        'controller' => 'products',
+        'action' => 'sizesAjax',
+        'view' => 'productDetails',
+        'id' => '',
+        'color' => ''
+    ],
+    'products/sales' => [
+        'controller' => 'products',
+        'action' => 'sales',
+        'view' => 'products',
+    ],
+    'products/dainese-raceSuit' => [
+        'controller' => 'products',
+        'action' => 'banner',
+        'view' => 'products',
+        'brand' => 'Dainese',
+        'category' => 'RaceSuit'
+    ],
+    'products/agv-helmets' => [
+        'controller' => 'products',
+        'action' => 'banner',
+        'view' => 'products',
+        'brand' => 'AGV',
+        'category' => 'helmet'
+    ],
+    'products/shark-helmets' => [
+        'controller' => 'products',
+        'action' => 'banner',
+        'view' => 'products',
+        'brand' => 'Shark',
+        'category' => 'helmet'
     ],
     'admin' => [
         'controller' => 'admin',
         'action' => 'admin',
+        'view' => 'admin',
+    ],
+    'notify' => [
+        'controller' => 'admin',
+        'action' => 'notify',
         'view' => 'admin',
     ],
     'admin/products' => [
@@ -131,11 +242,125 @@ return [
         'model' => 'products',
         'id' => ''
     ],
+    'admin/products/add' => [
+        'controller' => 'admin',
+        'action' => 'adminProductAdd',
+        'view' => 'adminProductEdit',
+        'model' => 'products'
+    ],
+    'admin/products/delete/[0-9]+' => [
+        'controller' => 'admin',
+        'action' => 'adminProductDelete',
+        'view' => 'adminProducts',
+        'model' => 'products',
+        'id' => ''
+    ],
+    'admin/products/filter' => [
+        'controller' => 'admin',
+        'action' => 'adminProductsFilter',
+        'view' => 'adminProducts',
+        'model' => 'products'
+    ],
+    'admin/products/manage-stock/[0-9]+' => [
+        'controller' => 'admin',
+        'action' => 'adminManageStock',
+        'view' => 'adminManageStock',
+        'model' => 'products',
+        'id' => ''
+    ],
+    'admin/products/addStock/[A-Za-z]+/[A-Za-z]+/[0-9]+/[0-9]+' => [
+        'controller' => 'admin',
+        'action' => 'addStock',
+        'model' => 'products',
+        'view' => 'adminManageStock',
+        'id' => '',
+        'amount' => '',
+        'size' => '',
+        'color' => ''
+    ],
+    'admin/products/updateStock/[0-9]+/[0-9]+' => [
+        'controller' => 'admin',
+        'action' => 'updateStock',
+        'model' => 'products',
+        'view' => 'adminManageStock',
+        'id' => '',
+        'amount' => '',
+    ],
+    'admin/orders' => [
+        'controller' => 'admin',
+        'action' => 'adminOrders',
+        'view' => 'adminOrders',
+        'model' => 'orders'
+    ],
+    'admin/orders/dates' => [
+        'controller' => 'admin',
+        'action' => 'adminOrdersDates',
+        'view' => 'adminOrders',
+        'model' => 'orders',
+
+    ],
+    'admin/orders/user' => [
+        'controller' => 'admin',
+        'action' => 'adminOrdersUser',
+        'view' => 'adminOrders',
+        'model' => 'orders',
+
+    ],
+    'admin/order/viewOrder/[0-9]+' => [
+        'controller' => 'admin',
+        'action' => 'adminViewOrder',
+        'view' => 'adminViewOrder',
+        'model' => 'orders',
+        'id' => ''
+    ],'admin/order/changeStatus' => [
+        'controller' => 'admin',
+        'action' => 'changeStatus',
+        'view' => 'adminViewOrder',
+        'model' => 'orders',
+    ],
     'admin/customers' => [
         'controller' => 'admin',
         'action' => 'adminCustomers',
         'view' => 'adminCustomers',
         'model' => 'account'
+    ],
+    'admin/changeVat' => [
+        'controller' => 'admin',
+        'action' => 'changeVat',
+        'view' => '',
+    ],
+    'admin/salesStatistics' => [
+        'controller' => 'admin',
+        'action' => 'salesStatistics',
+        'view' => 'salesStatistics',
+    ],
+    'admin/loadSales/[0-9]+' => [
+        'controller' => 'admin',
+        'action' => 'loadSales',
+        'view' => '',
+        'id' => ''
+    ],
+    'admin/customersStatistics' => [
+        'controller' => 'admin',
+        'action' => 'customersStatistics',
+        'view' => 'customersStatistics',
+    ],
+    'admin/loadCustomers/[0-9]+' => [
+        'controller' => 'admin',
+        'action' => 'loadCustomers',
+        'view' => '',
+        'id' => ''
+    ],
+    'admin/discount' => [
+        'controller' => 'admin',
+        'action' => 'discount',
+        'view' => 'discount',
+    ],
+    'admin/discount/delete/[0-9]+' => [
+        'controller' => 'admin',
+        'action' => 'discountDelete',
+        'view' => 'discount',
+        'id' => ''
     ]
 
 ];

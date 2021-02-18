@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/SafeRideStore/public/styles/mycss.css?version=54">
+    <link rel="stylesheet" href="/SafeRideStore/public/styles/mycss.css?version=76">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -21,27 +21,22 @@
             use application\components\Cart;
 
             echo $title; ?></title>
-
 </head>
 <header>
     <div class=" top-bar ">
         <div class="row">
             <div class="col-4">
-                <a href="#" class="nav-link top-link"><span class="fa fa-phone"></span>
-                    <span class="d-none d-md-inline-block">1+ (234) 5678 9101</span></a>
+                <a href="/SafeRideStore/contact" class="nav-link top-link"><span class="fa fa-phone"></span>
+                    <span class="d-none d-md-inline-block">+972 51236879</span></a>
             </div>
             <div class="col-8">
                 <ul class="nav justify-content-end mr-auto">
-
                     <li class="nav-item">
                         <?php if (Cart::checkLoged())
                             echo ' <a class="nav-link top-link" href="#" data-toggle="modal" data-target="#account"><i class="fas fa-user"></i> Account</a>';
                         else
                             echo ' <a class="nav-link top-link" href="#" data-toggle="modal" data-target="#logIn"><i class="fas fa-sign-in-alt"> </i> Log-In</a>';
-
                         ?>
-
-
                     </li>
                     <li class="nav-item">
                         <?php if (Cart::checkLoged())
@@ -63,7 +58,6 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -75,83 +69,116 @@
                         <h6>Helmets</h6>
                         <div class="row">
                             <li class="col-3 ">
-                                <a href="/SafeRideStore/products/full-face-helmets" title="FullFace">
+                                <a class="top-link" href="/SafeRideStore/products/full-face-helmets" title="FullFace">
                                     <img src="/SafeRideStore/public/images/Full-Face-Helmets.jpg" width="75" height="75">Full Face</a>
                             </li>
                             <li class="col-3">
-                                <a href="/SafeRideStore/products/Helmets-Modular" title="Modular">
+                                <a class="top-link" href="/SafeRideStore/products/modular" title="Modular">
                                     <img src="/SafeRideStore/public/images/Helmets-Modular.jpg" width="75" height="75">Modular</a>
                             </li>
                             <li class="col-3">
-                                <a href="#" title="Dual Sport">
+                                <a class="top-link" href="/SafeRideStore/products/dualSport" title="Dual Sport">
                                     <img src="/SafeRideStore/public/images/Dual-Sport-Helmets.jpg" width="75" height="75">Dual Sport</a>
                             </li>
                             <li class="col-3">
-                                <a href="#" title="Dirt">
+                                <a class="top-link" href="/SafeRideStore/products/dirt-helmet" title="Dirt">
                                     <img src="/SafeRideStore/public/images/Dirt-Helmets.jpg" width="75" height="75">Dirt Helmet</a li>
                         </div>
-                        <div class="row">
+                        <div class="row ">
                             <li class="col-3">
-                                <a href="#" title="Half">
+                                <a class="top-link" href="/SafeRideStore/products/half-helmet" title="Half">
                                     <img src="/SafeRideStore/public/images/Half-Helmets.jpg" width="75" height="75">Half Helmet</a>
                             </li>
                             <li class="col-3">
-                                <a href="#" title="Open Face">
+                                <a class="top-link" href="/SafeRideStore/products/open-face-helmet" title="Open Face">
                                     <img src="/SafeRideStore/public/images/Open-Face-Helmets.jpg" width="75" height="75">Open Face</a>
                             </li>
                             <li class="col-3">
-                                <a href="#" title="Accessories">
+                                <a class="top-link" href="/SafeRideStore/products/accessories" title="Accessories">
                                     <img src=" /SafeRideStore/public/images/accessories.jpg" width="75" height="75">Accessories</a>
                             </li>
-                            <li class="col-3 ">
+                            <li class="col-3 mt-4">
                                 <div class="">
-                                    <a href="SafeRideStore/products/helmets" class="" title="all"> View All</a>
+                                    <a class="top-link" href="/SafeRideStore/products/helmets" class="" title="all"><img src="/SafeRideStore/public/images/all.jpg" width="50" height="50"> View All</a>
                                 </div>
                             </li>
-
                         </div>
-
                     </ul>
                 </li>
                 <li class=" nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdowGear" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Riding Gear</a>
-                    <ul class="dropdown-menu dropGear pl-2" aria-labelledby="dropdowGear">
+                    <a class="nav-link dropdown-toggle" href="/SafeRideStore/products/protection/protection" id="dropdowGear" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Riding Gear</a>
+                    <ul class="dropdown-menu dropGear pl-5" aria-labelledby="dropdowGear">
                         <h6>Riding Gear</h6>
                         <div class="row">
-                            <li class="col"><a href="index.html" title="home 1"><img src="logo_w3s.gif" width="50" height="50">Home 1</a></li>
-                            <li class="col"><a href="home-2.html" title="home 2"><img src="logo_w3s.gif" width="50" height="50">Home 2</a></li>
-                            <li class="col"><a href="home-3.html" title="home 3"><img src="logo_w3s.gif" width="50" height="50">Home 3</a></li>
-                            <li class="col"><a href="home-4.html" title="home 4"><img src="logo_w3s.gif" width="50" height="50">Home 4</a></li>
-                            <li class="col"><a href="home-4.html" title="home 4"><img src="logo_w3s.gif" width="50" height="50">Home 4</a></li>
-
+                            <li class="col-2"><a class="top-link" href="/SafeRideStore/products/protection/jackets" title="Jackets"><img src="/SafeRideStore/public/images/jacket.jpg" width="50" height="50">Jackets</a></li>
+                            <li class="col-2"><a class="top-link" href="/SafeRideStore/products/helmets" title="Helmets"><img src="/SafeRideStore/public/images/helmets.jpg" width="50" height="50">Helmets</a></li>
+                            <li class="col-2"><a class="top-link" href="/SafeRideStore/products/protection/gloves" title="Gloves"><img src="/SafeRideStore/public/images/gloves.jpg" width="50" height="50">Gloves</a></li>
+                            <li class="col-2"><a class="top-link" href="/SafeRideStore/products/protection/boots" title="Riding Boots"><img src="/SafeRideStore/public/images/boots.jpg" width="50" height="50">Boots</a></li>
+                            <li class="col-2"><a class="top-link" href="/SafeRideStore/products/protection/RaceSuit" title="Race Suit"><img src="/SafeRideStore/public/images/racesuit.jpg" width="50" height="50">RaceSuit</a></li>
                         </div>
+                        <div class="row mt-4">
+                            <li class="col-2"><a class="top-link" href="/SafeRideStore/products/jeans" title="Jeans"><img src="/SafeRideStore/public/images/jeans.jpg" width="50" height="50">Jeans</a></li>
+                            <li class="col-2"><a class="top-link" href="/SafeRideStore/products/RainGear" title="Rain Gear"><img src="/SafeRideStore/public/images/rain.jpg" width=" 50" height="50">Rain Suits</a></li>
+                            <li class="col-2"><a class="top-link" href="/SafeRideStore/products/protection/Armored" title="Armored"><img src="/SafeRideStore/public/images/protection.jpeg" width="50" height="50">Protection</a></li>
+                            <li class="col-2"></li>
+                            <li class="col-2 pt-2"><a class="top-link" href="/SafeRideStore/products/protection/protection" title="All"><img src="/SafeRideStore/public/images/all.jpg" width="50" height="50">View All</a></li>
+                        </div>
+                    </ul>
+                </li>
+                <li class=" nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdowBrand" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Brands</a>
+                    <ul class="dropdown-menu dropGear pl-5" aria-labelledby="dropdowBrands">
+                        <h6>Brands</h6>
                         <div class="row">
-                            <li class="col"><a href="home-5.html" title="home 5"><img src="logo_w3s.gif" width="50" height="50">Home 5</a></li>
-                            <li class="col"><a href="home-6.html" title="home 6"><img src="logo_w3s.gif" width="50" height="50">Home 6</a></li>
-                            <li class="col"><a href="home-5.html" title="home 5"><img src="logo_w3s.gif" width="50" height="50">Home 5</a></li>
-                            <li class="col"><a href="home-6.html" title="home 6"><img src="logo_w3s.gif" width="50" height="50">Home 6</a></li>
-                            <li class="col"><a href="home-4.html" title="home 4"><img src="logo_w3s.gif" width="50" height="50">Home 4</a></li>
-
+                            <li class="col-3 justify-content-center"><a class="top-link" href="/SafeRideStore/products/brands/icon" title=" Icon"><img src="/SafeRideStore/public/images/brands/icon.jpg" width=" 90" height="60">
+                                    <div class="ml-4">Icon</div>
+                                </a></li>
+                            <li class=" col-3"><a class="top-link" href="/SafeRideStore/products/brands/alpinestars" title="alpinestars"><img src="/SafeRideStore/public/images/brands/alpinestars.jpeg" width=" 90" height="60">
+                                    <div class="ml-4">Alpinestars</div>
+                                </a></li>
+                            <li class="col-3"><a class="top-link" href="/SafeRideStore/products/brands/agv" title="agv"><img src="/SafeRideStore/public/images/brands/agv.jpeg" width=" 114" height="60">
+                                    <div class="ml-5">Agv</div>
+                                </a></li>
+                            <li class="col-3"><a class="top-link" href="/SafeRideStore/products/brands/arai" title="arai"><img src="/SafeRideStore/public/images/brands/arai.jpeg" width=" 90" height="60">
+                                    <div class="ml-4">Arai</div>
+                                </a></li>
                         </div>
-
+                        <div class="row mt-4">
+                            <li class="col-3"><a class="top-link" href="/SafeRideStore/products/brands/ls2" title="LS2"><img src="/SafeRideStore/public/images/brands/ls2.jpeg" width=" 90" height="60">
+                                    <div class="ml-4">LS2</div>
+                                </a></li>
+                            <li class="col-3"><a class="top-link" href="/SafeRideStore/products/brands/shark" title="shark"><img src="/SafeRideStore/public/images/brands/shark.jpeg" width=" 90" height="60">
+                                    <div class="ml-4">Shark</div>
+                                </a></li>
+                            <li class="col-3"><a class="top-link" href="/SafeRideStore/products/brands/bell" title="bell"><img src="/SafeRideStore/public/images/brands/bell.jpeg" width=" 90" height="60">
+                                    <div class="ml-4">Bell</div>
+                                </a></li>
+                            <li class="col-3"><a class="top-link" href="/SafeRideStore/products/brands/shoei" title="shoei"><img src="/SafeRideStore/public/images/brands/shoei.jpeg" width=" 90" height="60">
+                                    <div class="ml-4">Shoei</div>
+                                </a></li>
+                        </div>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#">Brands</a>
+                    <a class="nav-link " href="/SafeRideStore/gear-guid">Gear Guid</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#">Gear Guid</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="#">Contuct Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="/SafeRideStore/admin">admin</a>
+                    <a class="nav-link " href="/SafeRideStore/contact">Contact Us</a>
                 </li>
             </ul>
-            <form class="form-inline">
-                <input type="text" class="form-control h-75 mr-sm-2" placeholder="Search" aria-label="Search">
-                <button class=" btn btn-search my-2 my-sm-0">Search</button>
+
+            <?php
+            if (isset($_SESSION['admin']))
+                echo '
+                    <ul class="navbar-nav justify-content-center">
+                <li class="nav-item mr-5">
+                <a class="nav-link " href="/SafeRideStore/admin"><i class="fas fa-user-shield"></i> Admin Panel</a>
+                </li></ul>';
+            ?>
+
+            <form class="form-inline" method="POST" action="/SafeRideStore/products/search">
+                <input name="searching" type="text" class="form-control h-75 mr-sm-2" placeholder="Search" aria-label="Search">
+                <button type="submit" name="submit-search" class=" btn btn-search my-2 my-sm-0">Search</button>
             </form>
         </div>
 
@@ -204,65 +231,8 @@
     <!-- Copyright -->
 
 </footer>
-<script>
-    $(document).ready(function() {
-        $(".addToCart").click(function() {
-            var id = $(this).attr("data-id");
-            var amount = document.getElementById("count").value;
-            var size = getRadioValue();
-            var element = document.getElementById("colors");
-            var color = element.options[element.selectedIndex].text
-            $.post("/SafeRideStore/cart/addAjax/" + color + "/" + size + "/" + amount + "/" + id, {}, function(data) {
-                $("#cartCount").html(data);
-            });
 
-            return false;
-        });
-    });
+<script src="/SafeRideStore/public/script/mainScript.js"></script>
 
-    function getRadioValue() {
-        var element = document.getElementsByName('sizes');
-        for (i = 0; i < element.length; i++) {
-            if (element[i].checked)
-                return element[i].value;
-        }
-    }
-
-
-    $(document).ready(function() {
-        $(".minus").click(function() {
-            var id = $(this).attr("data-id");
-            console.log(document.getElementById("count" + id).value)
-            if (document.getElementsByClassName("count")[0].value > 1) {
-                this.parentNode.querySelector('input[type=number]').stepDown()
-
-                $.post("/SafeRideStore/cart/decAjax/" + id, {}, function(data) {
-                    $("#totalPrice").html(data);
-
-                });
-            }
-            return false;
-        });
-    });
-
-    $(document).ready(function() {
-        $(".plus").click(function() {
-            var id = $(this).attr("data-id");
-            if (document.getElementById("count" + id).value < 99) {
-                this.parentNode.querySelector('input[type=number]').stepUp()
-                $.post("/SafeRideStore/cart/incAjax/" + id, {}, function(data) {
-                    $("#totalPrice").html(data);
-                });
-                return false;
-            }
-        });
-
-    });
-
-    function cartClick() {
-        window.alert('Plese log-in to view your cart');
-    }
-</script>
-<?= debug($_COOKIE); ?>
 
 </html>

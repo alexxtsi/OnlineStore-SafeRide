@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title " id="logIn">Log-In</h5>
+                <h5 class="title ">Log-In</h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -15,7 +15,7 @@
                                 <div class="form-group">
                                     <label for="inputUseName">User Name:</label>
                                     <input type="text" name="userName" class="form-control" id="inputUseName" aria-describedby="userNameHelp" required>
-                                    <small id="userNameHelp" class="form-text text-muted">Enter your Usare Name
+                                    <small id="userNameHelp" class="form-text text-muted">Enter your User Name
                                     </small>
                                 </div>
                             </div>

@@ -4,6 +4,10 @@ namespace application\core;
 
 use application\core\View;
 
+/**
+ * Controller abstract class 
+ * the core for other controllerds 
+ */
 abstract class Controller
 {
     public $route;
@@ -21,7 +25,7 @@ abstract class Controller
     }
     public function loadModel($name)
     {
-        $path = 'application\models\\' . ucfirst($name) . 'Model'; # path for model of curent controller
+        $path = 'application\models\\' . ucfirst($name) . 'Model'; # path for model of current controller
         if (class_exists($path)) { # check if this model class exists
 
             return new $path;

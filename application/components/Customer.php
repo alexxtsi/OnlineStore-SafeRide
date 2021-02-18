@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Class Customer
+ * Entity class for customer
+ */
 namespace application\components;
 
 class Customer
@@ -9,6 +12,8 @@ class Customer
     protected $lastName;
     protected $email;
     protected $address;
+    protected $zipCode;
+    protected $city;
     protected $password;
     protected $phoneNumber;
     protected $cartId;
@@ -44,6 +49,22 @@ class Customer
     public function setAddress($address)
     {
         $this->address = $address;
+    }
+    public function getzipCode()
+    {
+        return $this->zipCode;
+    }
+    public function setzipCode($zipCode)
+    {
+        $this->zipCode = $zipCode;
+    }
+    public function getcity()
+    {
+        return $this->city;
+    }
+    public function setcity($city)
+    {
+        $this->city = $city;
     }
     public function getUserName()
     {

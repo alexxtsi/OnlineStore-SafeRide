@@ -14,6 +14,5 @@ spl_autoload_register(function ($class) { # add created class to autoload queue
 
 session_start();
 
-
 $router = new Router;
 $router->run();

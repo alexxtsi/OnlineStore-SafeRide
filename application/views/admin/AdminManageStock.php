@@ -6,8 +6,6 @@
     <table class="table" id="stockTable">
         <thead class="thead-dark">
             <tr>
-
-
                 <th>Size</th>
                 <th>Color</th>
                 <th>Amount</th>
@@ -23,7 +21,7 @@
                 <tr>
                     <td><?= $products[$i]['size'] ?></td>
                     <td><?= $products[$i]['color'] ?></td>
-                    <td><?= $products[$i]['amount'] ?></td>
+                    <td> <input type="text" size="3" id="<?= $products[$i]['inStockId'] ?>" oninput="this.value = this.value.replace(/[^0-9.]/g,'').replace(/(\..*)\./g, '$1');" value="<?= $products[$i]['amount'] ?>" required onkeyup="quantityChange()"> </td>
                 </tr>
             <?php
                 }
@@ -32,6 +30,7 @@
         </tbody>
     </table>
     <form action="" method="post">
+
         <div class="row m-4">
             <div class="col-2">
                 <label>Size:&nbsp&nbsp</label>

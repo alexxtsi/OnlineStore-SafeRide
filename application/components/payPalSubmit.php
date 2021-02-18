@@ -1,34 +1,33 @@
 <?php
-// checkout.php
-$payNowButtonUrl = 'https://www.sandbox.paypal.com/cgi-bin/websc';
-$userId = 315; // id текущего пользователя
 
-$receiverEmail = 'sb-vbha473030483@business.example.com'; //email получателя платежа(на него зарегестрирован paypal аккаунт) 
-$productId = 1;
-$itemName = 'Shopping cart';    // название продукта
-$amount = '1.0'; // цена продукта(за 1 шт.)
-$quantity = 3;    // количество
+use application\components\Cart;
 
-$returnUrl = 'http://localhost/SafeRideStore/payment_success.php';
-$customData = ['user_id' => $userId, 'product_id' => $productId];
+$payNowUrl = 'https://www.sandbox.paypal.com/cgi-bin/websc';
+$userName = $_SESSION['userName']; //user name
+
+$receiverEmail = 'sb-vbha473030483@business.example.com'; //payment reciver email 
+$cartId = 1;
+$itemName = 'Shopping cart';    // product name
+$amount = Cart::TotalPrice(); //price
+$quantity = 1;
+
+$returnUrl = 'http://localhost/SafeRideStore';
+$cancelUrl = 'http://localhost/SafeRideStore';
+$notifyUrl = 'http://localhost/SafeRideStore/notify';
+
+
 ?>
-
-<form action="<?php echo $payNowButtonUrl; ?>" method="post">
+<form id="payForm" action=<?= $payNowUrl; ?> method="post" target="_top">
+    <input type="hidden" id="payNowUrl" name="payNowUrl" value='<?= $payNowUrl; ?>'>
+    <input type='hidden' name='business' value='<?= $receiverEmail; ?>'>
+    <input type='hidden' name='item_name' value='<?= $itemName; ?>'>
+    <input type='hidden' name='item_number' value='<?= $userName; ?> '>
+    <input type='hidden' name='amount' id="totalPrice" value='<?= $amount; ?>'>
+    <input type='hidden' name='no_shipping' value='1'>
+    <input type='hidden' name='currency_code' value='USD'>
+    <input type='hidden' name='notify_url' value='<?= $notifyUrl; ?>'>
+    <input type='hidden' name='cancel_return' value='<?= $cancelUrl; ?>'>
+    <input type='hidden' name='return' value='<?= $returnUrl; ?>'>
     <input type="hidden" name="cmd" value="_xclick">
-    <input type="hidden" name="business" value="<?= $receiverEmail; ?>">
-    <input id="paypalItemName" type="hidden" name="item_name" value="<?= $itemName; ?>">
-    <input id="paypalAmmount" type="hidden" name="amount" value="<?= $amount; ?>">
-    <input type="hidden" name="no_shipping" value="0">
-    <input type="hidden" name="return" value="<?= $returnUrl; ?>">
-
-    <input type="hidden" name="custom" value="<?= json_encode($customData); ?>">
-
-    <input type="hidden" name="currency_code" value="USD">
-    <input type="hidden" name="lc" value="US">
-    <input type="hidden" name="bn" value="PP-BuyNowBF">
-
-    <button type="submit">
-        Pay Now
-    </button>
+    <input class="btn btn-primary ml-5 pay" type="submit" name="pay_now" id="pay_now" Value="Pay Now">
 </form>
-
