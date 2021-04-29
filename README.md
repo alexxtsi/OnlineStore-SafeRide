@@ -3,7 +3,7 @@ The OnlineStore-SafeRide is a virtual store on the Internet where customers can 
 The selected items may be collected in a shopping cart.
 At checkout time, the items in the shopping cart will be presented as an order.
 
-# Home Page
+#                                     Home Page
 ![home-page](https://user-images.githubusercontent.com/47089696/116525245-fdda1280-a8e0-11eb-89aa-290c8869d53a.png)
 
 
