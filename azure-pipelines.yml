@@ -15,4 +15,4 @@ steps:
     sourceGitRepositoryUri: 'https://dev.azure.com/BudgetBusters/FundTrackr/_git/test'
     sourceGitRepositoryPersonalAccessToken: 'xlnje4exorlfsqdlrh5xczjckqskbo6yl7lsxelo7bwo3sxjysaa'
     destinationGitRepositoryUri: 'https://github.com/alexxtsi/test.git'
-    destinationGitRepositoryPersonalAccessToken: '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'
+    destinationGitRepositoryPersonalAccessToken: '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'
