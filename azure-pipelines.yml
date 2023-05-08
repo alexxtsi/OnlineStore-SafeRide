@@ -10,8 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-
-- script: |
 - task: mirror-git-repository-vsts-task@1
   inputs:
     sourceGitRepositoryUri: 'https://dev.azure.com/BudgetBusters/FundTrackr/_git/test'
