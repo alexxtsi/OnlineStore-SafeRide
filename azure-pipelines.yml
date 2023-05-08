@@ -15,7 +15,7 @@ steps:
 - task: mirror-git-repository-vsts-task@1
   inputs:
     sourceGitRepositoryUri: 'https://dev.azure.com/BudgetBusters/FundTrackr/_git/test'
-    sourceGitRepositoryPersonalAccessToken: 'xlnje4exorlfsqdlrh5xczjckqskbo6yl7lsxelo7bwo3sxjysaa'
+    sourceGitRepositoryPersonalAccessToken: 'jwtdmkqupf56tyccifljr3z73w4v66opk34wd5hfenxzgca7fiea'
     destinationGitRepositoryUri: 'https://github.com/alexxtsi/test.git'
     destinationGitRepositoryPersonalAccessToken: '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'
 
