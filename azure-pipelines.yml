@@ -13,7 +13,6 @@ steps:
 
 - script: |
 - task: mirror-git-repository-vsts-task@1
-- task: mirror-git-repository-vsts-task@1
   inputs:
     sourceGitRepositoryUri: 'https://dev.azure.com/BudgetBusters/FundTrackr/_git/test'
     sourceGitRepositoryPersonalAccessToken: 'xlnje4exorlfsqdlrh5xczjckqskbo6yl7lsxelo7bwo3sxjysaa'
